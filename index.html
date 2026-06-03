@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Kartik Weds Namrata</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+font-family:'Poppins',sans-serif;
+background:#fffaf5;
+color:#333;
+overflow-x:hidden;
+}
+
+/* -----------------------
+CURTAIN
+-------------------------*/
+
+#curtain-container{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100vh;
+display:flex;
+z-index:9999;
+cursor:pointer;
+}
+
+.curtain{
+width:50%;
+height:100%;
+background:linear-gradient(
+to right,
+#5c0011,
+#8b0000,
+#5c0011
+);
+transition:all 2s ease;
+}
+
+.open-left{
+transform:translateX(-100%);
+}
+
+.open-right{
+transform:translateX(100%);
+}
+
+/* -----------------------
+SCRATCH CARD
+-------------------------*/
+
+.scratch-card{
+position:relative;
+max-width:400px;
+margin:30px auto;
+padding:40px;
+background:white;
+border-radius:15px;
+box-shadow:0 5px 20px rgba(0,0,0,.1);
+overflow:hidden;
+height:120px;
+display:flex;
+align-items:center;
+justify-content:center;
+}
+
+.scratch-content{
+text-align:center;
+font-size:1.5rem;
+font-weight:bold;
+color:#8b0000;
+font-family:'Cinzel';
+position:relative;
+z-index:1;
+}
+
+#scratchCanvas{
+position:absolute;
+top:0;
+left:0;
+cursor:pointer;
+touch-action:none;
+z-index:10;
+border-radius:15px;
+}
+
+/* -----------------------
+HERO
+-------------------------*/
+
+.hero{
+height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:20px;
+background:
+linear-gradient(rgba(255,255,255,.75),
+rgba(255,255,255,.75)),
+url("https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=1600")
+center/cover;
+}
+
+.hero h1{
+font-family:'Cinzel',serif;
+font-size:4rem;
+color:#8b0000;
+}
+
+.hero h2{
+font-family:'Cinzel',serif;
+font-size:2rem;
+margin:20px 0;
+}
+
+.hero p{
+max-width:700px;
+font-size:1.1rem;
+}
+
+/* -----------------------
+COUNTDOWN
+-------------------------*/
+
+.countdown{
+padding:80px 20px;
+text-align:center;
+background:#fff;
+}
+
+.countdown h2{
+font-family:'Cinzel';
+margin-bottom:40px;
+}
+
+.timer{
+display:flex;
+justify-content:center;
+gap:20px;
+flex-wrap:wrap;
+}
+
+.box{
+background:#8b0000;
+color:white;
+padding:25px;
+border-radius:15px;
+min-width:120px;
+}
+
+.box span{
+display:block;
+font-size:2rem;
+font-weight:bold;
+}
+
+/* -----------------------
+TIMELINE
+-------------------------*/
+
+.timeline{
+padding:80px 20px;
+background:#faf4ee;
+}
+
+.timeline h2{
+text-align:center;
+margin-bottom:50px;
+font-family:'Cinzel';
+}
+
+.event{
+max-width:700px;
+margin:20px auto;
+padding:25px;
+background:white;
+border-left:6px solid #8b0000;
+border-radius:10px;
+}
+
+/* -----------------------
+VENUE
+-------------------------*/
+
+.venue{
+padding:80px 20px;
+text-align:center;
+}
+
+.venue-card{
+max-width:700px;
+margin:auto;
+padding:30px;
+background:white;
+box-shadow:0 5px 20px rgba(0,0,0,.1);
+border-radius:20px;
+}
+
+.map-btn{
+display:inline-block;
+margin-top:20px;
+padding:12px 24px;
+background:#8b0000;
+color:white;
+text-decoration:none;
+border-radius:8px;
+}
+
+/* -----------------------
+RSVP
+-------------------------*/
+
+.rsvp{
+padding:80px 20px;
+text-align:center;
+background:#faf4ee;
+}
+
+.rsvp button{
+padding:14px 28px;
+margin:10px;
+border:none;
+cursor:pointer;
+border-radius:8px;
+font-size:1rem;
+}
+
+.yes{
+background:#8b0000;
+color:white;
+}
+
+.no{
+background:#ddd;
+}
+
+/* -----------------------
+FOOTER
+-------------------------*/
+
+footer{
+padding:40px;
+text-align:center;
+background:#8b0000;
+color:white;
+}
+
+/* -----------------------
+FLOWERS
+-------------------------*/
+
+.flower{
+position:fixed;
+top:-50px;
+font-size:25px;
+animation:fall linear infinite;
+pointer-events:none;
+}
+
+@keyframes fall{
+to{
+transform:translateY(110vh) rotate(360deg);
+}
+}
+
+/* -----------------------
+RESPONSIVE
+-------------------------*/
+
+@media(max-width:768px){
+
+.hero h1{
+font-size:2.5rem;
+}
+
+.hero h2{
+font-size:1.5rem;
+}
+
+.box{
+min-width:90px;
+padding:15px;
+}
+
+}
+
+</style>
+</head>
+<body>
+
+<!-- CURTAIN -->
+
+<div id="curtain-container">
+<div id="leftCurtain" class="curtain"></div>
+<div id="rightCurtain" class="curtain"></div>
+</div>
+
+<!-- HERO -->
+
+<section class="hero">
+
+<h1>Kartik ♥ Namrata</h1>
+
+<h2>We're Getting Married</h2>
+
+<p>
+Together with our families,
+we invite you to celebrate our wedding and share
+in the joy of this special occasion.
+</p>
+
+</section>
+
+<section class="scratch-section">
+    <div class="scratch-card">
+<div class="scratch-content">12 December 2026</div>
+<canvas id="scratchCanvas"></canvas>
+</div>
+</section>
+
+<!-- COUNTDOWN -->
+
+<section class="countdown">
+
+<h2>Countdown To The Wedding</h2>
+
+<div class="timer">
+
+<div class="box">
+<span id="days">0</span>
+Days
+</div>
+
+<div class="box">
+<span id="hours">0</span>
+Hours
+</div>
+
+<div class="box">
+<span id="minutes">0</span>
+Minutes
+</div>
+
+<div class="box">
+<span id="seconds">0</span>
+Seconds
+</div>
+
+</div>
+
+</section>
+
+<!-- EVENTS -->
+
+<section class="timeline">
+
+<h2>Wedding Celebrations</h2>
+
+<div class="event">
+<h3>🌼 Mehendi</h3>
+<p>10 December 2026</p>
+</div>
+
+<div class="event">
+<h3>🎶 Sangeet</h3>
+<p>11 December 2026</p>
+</div>
+
+<div class="event">
+<h3>🔥 Wedding Ceremony</h3>
+<p>12 December 2026</p>
+</div>
+
+<div class="event">
+<h3>🥂 Reception</h3>
+<p>13 December 2026</p>
+</div>
+
+</section>
+
+<!-- VENUE -->
+
+<section class="venue">
+
+<h2>Venue</h2>
+
+<div class="venue-card">
+
+<h3>The Royal Palace</h3>
+
+<p>
+Jaipur, Rajasthan
+</p>
+
+<a class="map-btn" href="#">
+Open Map
+</a>
+
+</div>
+
+</section>
+
+<!-- RSVP -->
+
+<section class="rsvp">
+
+<h2>Will You Join Us?</h2>
+
+<button class="yes" onclick="alert('Thank you for RSVP!')">
+Yes, I'll Attend
+</button>
+
+<button class="no">
+Unable To Attend
+</button>
+
+</section>
+
+<footer>
+
+<h3>Kartik ♥ Namrata</h3>
+
+
+
+</footer>
+
+<script>
+
+/* CURTAIN OPEN */
+
+window.onload=()=>{
+
+const curtainContainer=document.getElementById('curtain-container');
+
+function openCurtains(){
+document
+.getElementById('leftCurtain')
+.classList.add('open-left');
+
+document
+.getElementById('rightCurtain')
+.classList.add('open-right');
+
+setTimeout(()=>{
+curtainContainer.style.display='none';
+},2000);
+}
+
+// Click event
+curtainContainer.addEventListener('click', openCurtains);
+
+// Touch event
+curtainContainer.addEventListener('touchstart', openCurtains);
+
+}
+
+/* COUNTDOWN */
+
+const targetDate=
+new Date("December 12, 2026 18:00:00").getTime();
+
+setInterval(()=>{
+
+const now=new Date().getTime();
+
+const distance=targetDate-now;
+
+const days=Math.floor(
+distance/(1000*60*60*24)
+);
+
+const hours=Math.floor(
+(distance%(1000*60*60*24))
+/
+(1000*60*60)
+);
+
+const minutes=Math.floor(
+(distance%(1000*60*60))
+/
+(1000*60)
+);
+
+const seconds=Math.floor(
+(distance%(1000*60))
+/
+1000
+);
+
+document.getElementById("days").innerText=days;
+document.getElementById("hours").innerText=hours;
+document.getElementById("minutes").innerText=minutes;
+document.getElementById("seconds").innerText=seconds;
+
+},1000);
+
+/* SCRATCH CARD */
+
+const canvas=document.getElementById('scratchCanvas');
+const ctx=canvas.getContext('2d');
+const scratchCard=document.querySelector('.scratch-card');
+
+function initScratchCard(){
+const rect=scratchCard.getBoundingClientRect();
+canvas.width=scratchCard.offsetWidth;
+canvas.height=scratchCard.offsetHeight;
+
+// Draw scratch overlay completely
+ctx.fillStyle='#c0c0c0';
+ctx.fillRect(0,0,canvas.width,canvas.height);
+
+// Add text on overlay
+ctx.fillStyle='#fff';
+ctx.font='bold 16px Poppins';
+ctx.textAlign='center';
+ctx.textBaseline='middle';
+ctx.fillText('Scratch to reveal! 👆', canvas.width/2, canvas.height/2);
+}
+
+function scratch(x,y){
+// Clear larger area for better scratch effect
+const radius=20;
+ctx.clearRect(x-radius, y-radius, radius*2, radius*2);
+}
+
+let isDrawing=false;
+
+canvas.addEventListener('mousedown', (e)=>{ 
+isDrawing=true;
+const rect=canvas.getBoundingClientRect();
+const x=e.clientX-rect.left;
+const y=e.clientY-rect.top;
+scratch(x,y);
+});
+
+canvas.addEventListener('mouseup', ()=>{ isDrawing=false; });
+
+canvas.addEventListener('mousemove', (e)=>{
+if(!isDrawing) return;
+const rect=canvas.getBoundingClientRect();
+const x=e.clientX-rect.left;
+const y=e.clientY-rect.top;
+scratch(x,y);
+});
+
+canvas.addEventListener('touchstart', (e)=>{ 
+isDrawing=true;
+e.preventDefault();
+const rect=canvas.getBoundingClientRect();
+const touch=e.touches[0];
+const x=touch.clientX-rect.left;
+const y=touch.clientY-rect.top;
+scratch(x,y);
+});
+
+canvas.addEventListener('touchend', ()=>{ isDrawing=false; });
+
+canvas.addEventListener('touchmove', (e)=>{
+if(!isDrawing) return;
+e.preventDefault();
+const rect=canvas.getBoundingClientRect();
+const touch=e.touches[0];
+const x=touch.clientX-rect.left;
+const y=touch.clientY-rect.top;
+scratch(x,y);
+});
+
+setTimeout(initScratchCard, 100);
+
+/* FLOWERS */
+
+function createFlower(){
+
+const flower=document.createElement("div");
+
+flower.classList.add("flower");
+
+flower.innerHTML="❤️";
+
+flower.style.left=Math.random()*100+"vw";
+
+flower.style.animationDuration=
+Math.random()*5+5+"s";
+
+document.body.appendChild(flower);
+
+setTimeout(()=>{
+flower.remove();
+},10000);
+
+}
+
+setInterval(createFlower,500);
+
+</script>
+
+</body>
+</html>
