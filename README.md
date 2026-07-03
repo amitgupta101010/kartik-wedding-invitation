@@ -1,2 +1,2 @@
 # kartik-wedding-invitation
-Kartik's Wedding Invitation Card
+Kartik's Wedding Invitation Card Creation
